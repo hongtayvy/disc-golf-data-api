@@ -1,21 +1,21 @@
-package hongtay.vy.discgolfdataapi;
+package hongtay.vy.discgolfdataapi.mapper;
 
 import hongtay.vy.discgolfdataapi.dto.DiscDTO;
+import hongtay.vy.discgolfdataapi.entity.DiscEntity;
 import hongtay.vy.discgolfdataapi.model.Disc;
 
-public class DgdaMapper {
-    public Disc toDisc(DiscDTO discDTO){
+public class DiscMapper {
+    public Disc toDisc(DiscEntity discEntity){
         return new Disc(
-                discDTO.getCompany(),
-                discDTO.getName(),
-                discDTO.getPlastic(),
-                discDTO.getSpeed(),
-                discDTO.getGlide(),
-                discDTO.getTurn(),
-                discDTO.getFade()
+                discEntity.getCompany(),
+                discEntity.getName(),
+                discEntity.getPlastic(),
+                discEntity.getSpeed(),
+                discEntity.getGlide(),
+                discEntity.getTurn(),
+                discEntity.getFade()
         );
     }
-
     public DiscDTO toDiscDTO(Disc disc){
         return new DiscDTO(
                 disc.getCompany(),
