@@ -4,8 +4,10 @@ import hongtay.vy.discgolfdataapi.dto.DiscDTO;
 import hongtay.vy.discgolfdataapi.entity.DiscEntity;
 import hongtay.vy.discgolfdataapi.model.Disc;
 
+import java.util.Optional;
+
 public class DiscMapper {
-    public Disc toDisc(DiscEntity discEntity){
+    public Disc toDisc(DiscEntity discEntity) {
         return new Disc(
                 discEntity.getCompany(),
                 discEntity.getName(),
@@ -16,7 +18,8 @@ public class DiscMapper {
                 discEntity.getFade()
         );
     }
-    public DiscDTO toDiscDTO(Disc disc){
+
+    public DiscDTO toDiscDTO(Disc disc) {
         return new DiscDTO(
                 disc.getCompany(),
                 disc.getName(),
