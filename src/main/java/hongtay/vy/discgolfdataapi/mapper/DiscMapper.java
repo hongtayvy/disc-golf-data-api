@@ -5,13 +5,14 @@ import hongtay.vy.discgolfdataapi.entity.DiscEntity;
 import hongtay.vy.discgolfdataapi.model.Disc;
 
 import java.util.Optional;
-
 public class DiscMapper {
+    private final DiscEnumMapper discEnumMapper = new DiscEnumMapper();
     public Disc toDisc(DiscEntity discEntity) {
         return new Disc(
-                discEntity.getCompany(),
-                discEntity.getName(),
-                discEntity.getPlastic(),
+                discEnumMapper.getCompany(discEntity.getCompany()),
+                discEnumMapper.getName(discEntity.getName()),
+                discEnumMapper.getPlastic(discEntity.getPlastic()),
+                discEnumMapper.getType(discEntity.getType()),
                 discEntity.getSpeed(),
                 discEntity.getGlide(),
                 discEntity.getTurn(),
@@ -24,6 +25,7 @@ public class DiscMapper {
                 disc.getCompany(),
                 disc.getName(),
                 disc.getPlastic(),
+                disc.getType(),
                 disc.getSpeed(),
                 disc.getGlide(),
                 disc.getTurn(),

@@ -29,6 +29,8 @@ public class DiscEntity {
     private String name;
     @Column(name = "plastic")
     private String plastic;
+    @Column(name = "type")
+    private String type;
     @Column(name = "speed")
     private int speed;
     @Column(name = "glide")

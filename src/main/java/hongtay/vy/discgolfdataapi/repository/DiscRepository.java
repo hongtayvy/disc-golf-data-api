@@ -6,5 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DiscRepository extends JpaRepository<DiscEntity, Integer> {
-    DiscEntity findByCompany(String company);
+    DiscEntity findByCompany(String discCompany);
+    DiscEntity findByName(String discName);
+    DiscEntity findByPlastic(String discPlastic);
+    DiscEntity findByType(String discType);
 }

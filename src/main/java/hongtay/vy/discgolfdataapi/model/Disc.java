@@ -10,11 +10,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Disc {
-    String company;
-    String name;
-    String plastic;
-    int speed;
-    int glide;
-    int turn;
-    int fade;
+    private String company;
+    private String name;
+    private String plastic;
+    private String type;
+    private int speed;
+    private int glide;
+    private int turn;
+    private int fade;
 }
