@@ -21,7 +21,9 @@ import static hongtay.vy.discgolfdataapi.common.StringConstants.TYPE;
 public class DiscService {
     @Autowired
     private DiscRepository discRepository;
+
     private final DiscMapper discMapper = new DiscMapper();
+
     public Mono<DiscDTO> getDiscs(Map<String, String> discRequest){
         Map.Entry<String, String> entry = discRequest.entrySet().iterator().next();
         return switch (entry.getKey()){
@@ -34,27 +36,39 @@ public class DiscService {
     }
 
     public Mono<DiscDTO> getByDiscCompany(String discCompany){
-        DiscEntity discEntity = discRepository.findByCompany(discCompany);
-        Disc disc = discMapper.toDisc(discEntity);
-        DiscDTO discDTO = discMapper.toDiscDTO(disc);
-        return Mono.just(discDTO);
+        return Mono.just(
+                discMapper.toDiscDTO(
+                        discMapper.toDisc(
+                                discRepository.findByCompany(discCompany)
+                        )
+                )
+        );
     }
     public Mono<DiscDTO> getByDiscName(String discName){
-        DiscEntity discEntity = discRepository.findByName(discName);
-        Disc disc = discMapper.toDisc(discEntity);
-        DiscDTO discDTO = discMapper.toDiscDTO(disc);
-        return Mono.just(discDTO);
+        return Mono.just(
+                discMapper.toDiscDTO(
+                        discMapper.toDisc(
+                                discRepository.findByName(discName)
+                        )
+                )
+        );
     }
     public Mono<DiscDTO> getByDiscPlastic(String discPlastic){
-        DiscEntity discEntity = discRepository.findByPlastic(discPlastic);
-        Disc disc = discMapper.toDisc(discEntity);
-        DiscDTO discDTO = discMapper.toDiscDTO(disc);
-        return Mono.just(discDTO);
+        return Mono.just(
+                discMapper.toDiscDTO(
+                        discMapper.toDisc(
+                                discRepository.findByName(discPlastic)
+                        )
+                )
+        );
     }
     public Mono<DiscDTO> getByDiscType(String discType){
-        DiscEntity discEntity = discRepository.findByType(discType);
-        Disc disc = discMapper.toDisc(discEntity);
-        DiscDTO discDTO = discMapper.toDiscDTO(disc);
-        return Mono.just(discDTO);
+        return Mono.just(
+                discMapper.toDiscDTO(
+                        discMapper.toDisc(
+                                discRepository.findByType(discType)
+                        )
+                )
+        );
     }
 }
