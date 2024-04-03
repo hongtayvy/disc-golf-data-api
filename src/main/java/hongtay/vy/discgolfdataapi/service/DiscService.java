@@ -2,9 +2,7 @@ package hongtay.vy.discgolfdataapi.service;
 
 import hongtay.vy.discgolfdataapi.dto.DiscDTO;
 
-import hongtay.vy.discgolfdataapi.entity.DiscEntity;
 import hongtay.vy.discgolfdataapi.mapper.DiscMapper;
-import hongtay.vy.discgolfdataapi.model.Disc;
 import hongtay.vy.discgolfdataapi.repository.DiscRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,7 +55,7 @@ public class DiscService {
         return Mono.just(
                 discMapper.toDiscDTO(
                         discMapper.toDisc(
-                                discRepository.findByName(discPlastic)
+                                discRepository.findByPlastic(discPlastic)
                         )
                 )
         );
